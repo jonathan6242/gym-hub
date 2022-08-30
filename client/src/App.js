@@ -1,6 +1,6 @@
 function App() {
   const checkout = async () => {
-    fetch('http://localhost:5000/create-checkout-session', {
+    fetch('https://gym-hub-ecommerce.herokuapp.com/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,6 +39,7 @@ function App() {
         className="px-6 py-4 text-xl bg-blue-400 hover:bg-blue-500 duration-100 text-white font-semibold rounded-lg"
       >
         Checkout
+        {process.env.PORT}
       </button>
       <button
         onClick={getAllItems}

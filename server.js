@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000
 
 app.use(express.json())
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'https://gym-hub-ecommerce.herokuapp.com'
 }))
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
