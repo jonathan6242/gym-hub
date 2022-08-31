@@ -23,7 +23,7 @@ function App() {
 
   const getAllItems = async () => {
     console.log(123)
-    const items = await fetch('http://localhost:5000/storeitems')
+    const items = await fetch('https://gym-hub-ecommerce.herokuapp.com/storeitems')
     .then(res => {
       if(res.ok) return res.json();
     }).catch((e) => {
