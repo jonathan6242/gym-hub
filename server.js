@@ -890,7 +890,7 @@ app.post('/checkout', async (req, res) => {
 
 // Handles any requests that don't match the ones above
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
 
 if(process.env.NODE_ENV === 'production') {
