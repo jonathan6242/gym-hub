@@ -14,7 +14,7 @@ function Cart() {
     return amount;
   }
   const checkout = async () => {
-    fetch('/checkout', {
+    fetch('https://gym-hub-ecommerce.herokuapp.com/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
