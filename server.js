@@ -859,11 +859,6 @@ app.get('/offers', async (req, res) => {
   }
 })
 
-// Handles any requests that don't match the ones above
-// app.get('*', (req, res) =>{
-//   res.sendFile(path.join(__dirname, 'build', 'index.html')); 
-// });
-
 app.post('/checkout', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
@@ -891,6 +886,11 @@ app.post('/checkout', async (req, res) => {
     res.status(500).json({ error: e.message })
   }
 })
+
+// Handles any requests that don't match the ones above
+app.get('*', (req, res) =>{
+  res.sendFile(path.join(__dirname, 'build', 'index.html')); 
+});
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
