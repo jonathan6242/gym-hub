@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+.nav__link {
+  @apply relative z-10 after:content-[''] after:absolute after:-bottom-[1px] after:h-[1px] after:bg-white after:right-0 after:w-0 group-hover:after:left-0 group-hover:after:w-full after:transition-all after:duration-300
+}
+
+.no-cursor {
+  cursor: not-allowed;
+}
+
+.cart__length {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.home__header {
+  background-image: url('./assets/background_mobile.png')
+}
+
+@media(min-width: 768px) {
+  .home__header {
+    background-image: url('./assets/background_desktop.png')
+  }
+}
+
+section:nth-of-type(1 + 2n) {
+  @apply bg-white
+}
+
+section:nth-of-type(2n) {
+  @apply bg-background
+}
