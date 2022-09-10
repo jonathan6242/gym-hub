@@ -888,13 +888,9 @@ app.post('/checkout', async (req, res) => {
 })
 
 // Handles any requests that don't match the ones above
-app.get('/*', function(req, res) {
-  res.sendFile('client/build/index.html', function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
