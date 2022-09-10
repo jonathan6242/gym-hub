@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors')
 const PORT = process.env.PORT || 5000
 const path = require('path');
+const root = require('path').join(__dirname, 'client', 'build')
 
 app.use(express.json())
 app.use(cors({
@@ -888,13 +889,12 @@ app.post('/checkout', async (req, res) => {
   }
 })
 
-// Handles any requests that don't match the ones above
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
-});
-
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'))
+  app.use(express.static(root));
 }
+
+app.get("*", (req, res) => {
+  res.sendFile('index.html', { root });
+})
 
 app.listen(PORT, () => console.log(`Listening on Port ${PORT}`))
