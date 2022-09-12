@@ -24,33 +24,35 @@ function MegaMenu({ columns }) {
   }
 
   return (
-    <div className="fixed z-40 top-[68px] inset-x-0 hidden group-hover:flex justify-center text-primary bg-white border-b">
-      <div className="w-full max-w-6xl px-6 py-8 flex space-x-20">
-        {
-          columns.map((column, index) => (
-            <div className="flex flex-col space-y-5" key={index}>
-              <a 
-                href={nameToLink(column.name, column.name)} 
-                className="text-sm tracking-[1px] font-semibold"
-              >
-                {column.name}
-              </a>
-              <div className="flex flex-col items-start space-y-2 normal-case tracking-wide">
-                {
-                  column.items.map((item, index) => (
-                    <a 
-                      href={nameToLink(item, column.name)}
-                      className="hover:opacity-75 duration-200"
-                      key={index}
-                    >
-                      {item}
-                    </a>
-                  ))
-                }
+    <div className="hidden md:block">
+      <div className="fixed z-40 top-[68px] inset-x-0 hidden group-hover:flex justify-center text-primary bg-white border-b">
+        <div className="w-full max-w-6xl px-6 py-8 flex space-x-20">
+          {
+            columns.map((column, index) => (
+              <div className="flex flex-col space-y-5" key={index}>
+                <a 
+                  href={nameToLink(column.name, column.name)} 
+                  className="text-sm tracking-[1px] font-semibold"
+                >
+                  {column.name}
+                </a>
+                <div className="flex flex-col items-start space-y-2 normal-case tracking-wide">
+                  {
+                    column.items.map((item, index) => (
+                      <a 
+                        href={nameToLink(item, column.name)}
+                        className="hover:opacity-75 duration-200"
+                        key={index}
+                      >
+                        {item}
+                      </a>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
     </div>
   )

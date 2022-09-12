@@ -28,7 +28,7 @@ function Product({ product }) {
         />
       </figure>
       {/* Product Description */}
-      <div className="flex flex-col aspect-[2/1] border-t pt-4">
+      <div className="flex flex-col border-t pt-4">
         <div className="font-semibold md:text-lg">
           {product.name}
         </div>
