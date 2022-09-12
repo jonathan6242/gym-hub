@@ -15,7 +15,7 @@ function Success() {
         Your order has been placed. Thank you for your purchase.
       </div>
       <Link 
-        className="relative group bg-accent mt-6 p-4 uppercase text-white text-center text-sm font-semibold tracking-widest cursor-pointer overflow-hidden block"
+        className="relative group bg-accent mt-6 p-4 px-8 uppercase text-white text-center text-sm font-semibold tracking-widest cursor-pointer overflow-hidden block"
         to='/'
       >
         <span className="relative z-10">Continue Shopping</span> 

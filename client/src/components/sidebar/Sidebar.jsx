@@ -8,7 +8,7 @@ function Sidebar() {
   return (
     <>
       <div className={`fixed z-30 inset-y-0 left-0 w-[90vw] max-w-[400px] bg-white overflow-x-hidden duration-300 ease
-      ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      ${sidebarOpen ? 'translate-x-0' : '-translate-x-full pointer-events-none'}`}>
         <div className="px-6 py-4 border-b">
           <button
             onClick={() => setSidebarOpen(false)}
