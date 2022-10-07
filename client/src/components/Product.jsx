@@ -6,7 +6,7 @@ function Product({ product }) {
   return (
     <Link
       to={`/product/${product.id}`}
-      className="relative flex flex-col"
+      className="relative flex flex-col group"
     >
       {
         product.salePrice && (
@@ -23,12 +23,18 @@ function Product({ product }) {
       >
         <img
           src={product.url}
-          className={`w-full ${product.collections.includes('clothing') ? 'object-cover' : 'object-contain m-3'}`} 
+          className={`w-full group-hover:scale-105 duration-300
+          ${product.collections.includes('clothing') ? 'object-cover' 
+          : 'object-contain m-3'}`} 
           alt=""
         />
       </figure>
       {/* Product Description */}
-      <div className="flex flex-col border-t pt-4">
+      <div className="relative flex flex-col border-t pt-4">
+        <div className="absolute -top-1 self-center w-0 border-t-4 border-accent
+        group-hover:w-full duration-500 ease"></div>
+
+
         <div className="font-semibold md:text-lg">
           {product.name}
         </div>
