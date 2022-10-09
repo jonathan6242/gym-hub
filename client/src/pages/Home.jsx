@@ -4,10 +4,12 @@ import { Link } from "react-router-dom"
 import Highlight from "../components/Highlight";
 import Product from "../components/Product";
 import Equipment from "../assets/equipment.jpg"
+import { useRef } from "react";
 
 function Home() {
   const [bestsellers, setBestsellers] = useState(null);
   const [offers, setOffers] = useState(null);
+  const parallaxRef = useRef();
 
   useEffect(() => {
     async function getBestsellers() {
@@ -28,10 +30,31 @@ function Home() {
     getOffers();
   }, [])
 
+  useEffect(() => {
+    function onScroll() {
+      let offset = window.scrollY;
+        if(window.innerWidth >= 640) {
+          parallaxRef.current.style.backgroundPositionY = `calc(50% + ${offset * 0.3}px)`
+        } else {
+          parallaxRef.current.style.backgroundPositionY = `calc(50% + ${offset * 0.15}px)`
+        }
+        
+    }
+
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll);
+    }
+  }, [])
+
   return (
     <div className="flex-1">
       <div
         className="home__header relative bg-cover bg-center bg-no-repeat"
+        ref={parallaxRef}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto max-w-6xl px-6 py-4 flex flex-col items-center">
