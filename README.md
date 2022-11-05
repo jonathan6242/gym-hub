@@ -1,6 +1,6 @@
 # GymHub
 
-![alt text](https://www.jonathanfwong.com/assets/gymhub1.PNG "GymHub")
+![GymHub](https://www.jonathanfwong.com/assets/gymhub1.PNG "GymHub")
 
 ## About
 GymHub is a mock e-commerce website where users can buy gym equipment and clothing.
